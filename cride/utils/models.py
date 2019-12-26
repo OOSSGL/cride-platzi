@@ -16,12 +16,12 @@ class CRideModel(models.Model):
 
     created = models.DateTimeField(
         'created at',
-        auto_now_add=True,
+        auto_now_add=True, #Saves the date automatically when created
         help_text='Date time on which the object was created.'
     )
     modified = models.DateTimeField(
         'modified at',
-        auto_now=True,
+        auto_now=True, #Saves the date automatically in update
         help_text='Date time on which the object was last modified.'
     )
 
@@ -31,4 +31,7 @@ class CRideModel(models.Model):
         abstract = True
 
         get_latest_by = 'created'
-        ordering = ['-created', '-modified']
+        ordering = ['-created', '-modified'] # The - is for descendant
+
+
+# Las clases proxy no crean tabla en la base de datos, extienden la funcionalidad

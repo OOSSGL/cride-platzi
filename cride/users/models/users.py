@@ -29,6 +29,7 @@ class User(CRideModel, AbstractUser):
         message="Phone number must be entered in the format: +999999999. Up to 15 digits allowed."
     )
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
+    # The validators are quite nice to validate things, even come with regex! Nice
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
@@ -39,7 +40,7 @@ class User(CRideModel, AbstractUser):
         help_text=(
             'Help easily distinguish users and perform queries. '
             'Clients are the main type of user.'
-        )
+        ) # The () works as a concatenation of strings
     )
 
     is_verified = models.BooleanField(
